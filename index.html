@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vieli FC - Official Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #2e8b57; /* Vielli green */
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #2e8b57;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid #2e8b57;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: #2e8b57;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2e8b57;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Kits Section */
+        .kits {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+
+        .kits-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .kit {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .kit:hover {
+            transform: translateY(-10px);
+        }
+
+        .kit-image {
+            height: 300px;
+            position: relative;
+        }
+
+        .home-kit {
+            background-color: #2e8b57;
+            background-image: repeating-linear-gradient(
+                0deg,
+                white,
+                white 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            background-position: bottom;
+            background-size: 100% 60px;
+            background-repeat: repeat-x;
+        }
+
+        .away-kit {
+            background-color: white;
+            border: 1px solid #eee;
+        }
+
+        .sponsor-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .kit-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .kit-info h3 {
+            margin-bottom: 10px;
+            color: #2e8b57;
+        }
+
+        /* News Section */
+        .news {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .news-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-item {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-item:hover .news-image img {
+            transform: scale(1.1);
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .news-content h3 {
+            margin-bottom: 10px;
+            color: #2e8b57;
+        }
+
+        .news-content p {
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: #2e8b57;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Match Results */
+        .results {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .teams {
+            font-weight: bold;
+        }
+
+        .score {
+            color: #2e8b57;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: #2e8b57;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .social-links a {
+            display: inline-block;
+            color: white;
+            background-color: #333;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #2e8b57;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 1.5rem;
+                color: white;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+            }
+
+            nav.active {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo and Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="photo_2025-05-18_19-52-09.jpg" alt="Vieli FC Logo">
+                    <div class="logo-text">
+                        <h1>Vieli FC</h1>
+                        <p>Pride • Passion • Performance</p>
+                    </div>
+                </div>
+                <div class="menu-toggle">☰</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#kits">Kits</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Welcome to Vieli FC</h2>
+                <p>Experience the passion of football with our dedicated team. Join us in our journey to greatness as we compete at the highest levels of the sport.</p>
+                <a href="#about" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Vieli FC</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Story</h3>
+                    <p>Founded in 2024, Vieli FC has grown from a local community team to a competitive force in regional football. Our club is built on values of teamwork, respect, and excellence.</p>
+                    <p>With state-of-the-art training facilities and a dedicated coaching staff, we nurture talent at all levels, from youth development to our professional squad.</p>
+                    <p>Our home ground, the Vieli Arena, is known for its electric atmosphere and passionate supporters who create an unforgettable matchday experience.</p>
+                    <p>We're proud to be sponsored by KUDA, sharing our commitment to innovation and performance.</p>
+                </div>
+                <div class="about-image">
+                    <img src="photo_2025-05-18_19-51-41.jpg" alt="Vieli FC Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- News Section -->
+    <section class="news" id="news">
+        <div class="container">
+            <h2 class="section-title">Latest News</h2>
+            <div class="news-container">
+                <div class="news-item">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="New Striker Signing">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">June 15, 2023</div>
+                        <h3>Vieli FC Signs New Defensive midfielder</h3>
+                        <p>The club is thrilled to announce the signing of a defensive central midfielder known as Changson Lul aka Caicedo on a three-year deal. The 28-year-old joins from Bieh FC.</p>
+                        <p>Changson, known for his defending roles and work rate, expressed his excitement about joining Vieli FC: "This is an ambitious club with fantastic supporters. I can't wait to get started."</p>
+                        <div class="results">
+                            <h4>Recent Results:</h4>
+                            <div class="result-item">
+                                <span class="teams">Vieli FC vs.Bieh fc</span>
+                                <span class="score">2-1</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="teams">Young Star FC vs. Vieli FC</span>
+                                <span class="score">0-2</span>
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">Read Full Story →</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <div class="news-image">
+                        <img src="Rtftft.jpg" alt="Youth Academy">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">June 10, 2023</div>
+                        <h3>New Youth Academy Launched</h3>
+                        <p>Vieli FC has officially opened its state-of-the-art youth academy, marking a new era in player development for the club.</p>
+                        <p>The £15 million facility includes:</p>
+                        <ul style="margin-left: 20px; margin-bottom: 15px;">
+                            <li>Three full-size pitches</li>
+                            <li>Indoor training center</li>
+                            <li>Sports science lab</li>
+                            <li>Education center</li>
+                        </ul>
+                        <p>The club directors Khan Bachuch and Wal Dual said: "This gives us the platform to develop the next generation of Vieli stars."</p>
+                        <a href="#" class="read-more">Read Full Story →</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <div class="news-image">
+                        <img src="minikit.png" alt="New Kits">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">June 5, 2023</div>
+                        <h3>2023 Kit Reveal</h3>
+                        <p>The club has unveiled its new home and away kits for the upcoming season to fan acclaim. The designs pay homage to the club's history while incorporating modern performance technology.</p>
+                        <p>Home kit features the traditional green with white stripes at the bottom, while the away kit is a sleek all-white design. Both feature the KUDA sponsorship prominently.</p>
+                        <p>Fans can pre-order the new kits starting tomorrow at the club store and online.</p>
+                        <a href="#" class="read-more">Read Full Story →</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1471295253337-3ceaaedca402?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Stadium Expansion">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">May 28, 2023</div>
+                        <h3>Stadium Expansion Plans Approved</h3>
+                        <p>City council has approved plans for the expansion of Vieli Arena, increasing capacity to 35,000 seats. The project will begin this offseason.</p>
+                        <p>The expansion includes:</p>
+                        <ul style="margin-left: 20px; margin-bottom: 15px;">
+                            <li>New North Stand with 8,000 seats</li>
+                            <li>Enhanced hospitality areas</li>
+                            <li>Improved accessibility features</li>
+                            <li>State-of-the-art media facilities</li>
+                        </ul>
+                        <a href="#" class="read-more">Read Full Story →</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <div class="news-image">
+                        <img src="3EF8FA4200000578-0-image-a-35_1491413593890.jpg" alt="Community Program">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">May 20, 2023</div>
+                        <h3>Community Program Reaches 10,000 Kids</h3>
+                        <p>Vieli FC's community outreach program has now engaged with over 10,000 local children through free coaching sessions and school visits.</p>
+                        <p>The program, now in its fifth year, aims to:</p>
+                        <ul style="margin-left: 20px; margin-bottom: 15px;">
+                            <li>Promote physical activity</li>
+                            <li>Develop football skills</li>
+                            <li>Identify local talent</li>
+                            <li>Support education initiatives</li>
+                        </ul>
+                        <p>Manager Nhial Koryom said: "Giving back to our community is at the heart of what we do as a club."</p>
+                        <a href="#" class="read-more">Read Full Story →</a>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <div class="news-image">
+                        <img src="OIP.jpg" alt="Women's Team">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">May 15, 2023</div>
+                        <h3>Women's Team Wins League Title</h3>
+                        <p>Vieli FC Women secured their first league title with a dramatic 3-2 victory over rivals Nyandit FC yesterday.</p>
+                        <p>The team, led by Nyamuoch chuol, finished the season unbeaten with 22 wins from 24 matches.</p>
+                        <div class="results">
+                            <h4>Final Standings:</h4>
+                            <div class="result-item">
+                                <span class="teams">1. Vieli FC</span>
+                                <span class="score">66 pts</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="teams">2. Nyandit FC</span>
+                                <span class="score">58 pts</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="teams">3. Misssion Ladies</span>
+                                <span class="score">54 pts</span>
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">Read Full Story →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>Vieli FC is a professional football club committed to excellence on and off the pitch. We believe in the power of sport to inspire and unite communities.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#home" style="color: white; text-decoration: none;">Home</a></li>
+                        <li><a href="#about" style="color: white; text-decoration: none;">About</a></li>
+                        <li><a href="#kits" style="color: white; text-decoration: none;">Kits</a></li>
+                        <li><a href="#news" style="color: white; text-decoration: none;">News</a></li>
+                        <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Vieli Arena, Football Road</p>
+                    <p>Vieli City, Akobo East</p>
+                    <p>Phone: +251977484312</p>
+                    <p>Email: info@vielifc.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Vieli FC. All Rights Reserved. | Designed with passion for football</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (document.querySelector('nav').classList.contains('active')) {
+                    document.querySelector('nav').classList.remove('active');
+                }
+            });
+        });
+
+        // News Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // This could be expanded to filter news by category
+            console.log('Website loaded successfully!');
+            
+            // Example: Could add click handlers for "Read More" buttons
+            document.querySelectorAll('.read-more').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('This would show the full news article in a real implementation!');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
